@@ -1,0 +1,128 @@
+{
+  "kind": "build_request",
+  "title": "Taekwondo Academy Marketing Website",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a public marketing website for a Taekwondo academy with a responsive layout and clear navigation, including pages/sections for: Home (hero + highlights), About the Academy, Programs/Classes, Schedule, Instructors, Pricing/Memberships, FAQ, and Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make website for my taekwondo academy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Site has a header navigation that links to each page/section (desktop and mobile).",
+        "All pages/sections render well on mobile, tablet, and desktop.",
+        "Each page/section contains sensible placeholder English copy that can be replaced later (no lorem ipsum)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a Contact form that allows visitors to submit inquiries (name, email, phone optional, message) and store submissions in the backend canister so they persist across reloads.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make website for my taekwondo academy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form validates required fields (name, email, message) and shows inline errors.",
+        "On successful submission, the user sees a confirmation state and the form resets.",
+        "Backend stores inquiries in stable storage and returns them via an API method.",
+        "Frontend submits inquiries to the backend and handles loading/error states."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a simple admin-only view protected by Internet Identity login that lists submitted contact inquiries (most recent first) for academy staff.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make website for my taekwondo academy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin view requires Internet Identity login; unauthenticated users cannot access the inquiry list.",
+        "Only the canister-defined admin principal(s) can view inquiries; non-admin authenticated users are denied.",
+        "Admin view displays inquiry fields and submission timestamp, and supports basic empty/loading/error states."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Establish a coherent, distinct visual theme for a martial-arts academy brand (colors, typography, spacing, components) and apply it consistently across the site (do not use a blue/purple theme).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make website for my taekwondo academy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Theme is consistently applied to navigation, buttons, cards/sections, and typography.",
+        "Color palette avoids blue/purple as the primary theme colors.",
+        "UI uses Tailwind styling and existing UI components without modifying immutable component sources."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add the required generated static images to the project and use them in the UI (hero and branding areas) from frontend/public/assets/generated (do not serve images from the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make website for my taekwondo academy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are present under frontend/public/assets/generated with the specified filenames.",
+        "Home page uses the hero image in the top section.",
+        "Brand mark/logo image is used in the header and footer (or equivalent branding area)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Do not edit files under frontend/src/components/ui or other immutablePaths; only compose/use them.",
+    "No third-party authentication providers; if auth is used, use Internet Identity.",
+    "Do not add maps/geolocation integrations."
+  ],
+  "nonGoals": [
+    "Online payments, subscriptions, or e-commerce checkout.",
+    "Real-time chat or messaging features.",
+    "Member portal for students (attendance tracking, belt progression, etc.).",
+    "Integration with external CRMs, email services, or social media APIs."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Taekwondo academy logo mark with a bold, modern martial-arts aesthetic (tkd-logo.dim_512x512.png)",
+      "Wide hero banner image showing a dynamic taekwondo training scene in a clean illustrated style (tkd-hero-banner.dim_1920x800.png)",
+      "Subtle repeating background pattern inspired by martial-arts motifs (tkd-pattern.dim_1024x1024.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-public-marketing-website-for-a-taekwondo-academy-with-a-responsive-layout-and-clear-navigation-including-pages-sections-for-home-hero-highlights-about-the-academy-programs-classes-schedule-instructors-pricing-memberships-faq-and-contact",
+      "featureTitle": "Create a public marketing website for a Taekwondo academy with a responsive layout and clear navigation, including pages/sections for: Home (hero + highlights), About the Academy, Programs/Classes, Schedule, Instructors, Pricing/Memberships, FAQ, and Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/site/Footer.tsx",
+        "frontend/src/components/site/Header.tsx",
+        "frontend/src/components/site/sections/About.tsx",
+        "frontend/src/components/site/sections/Contact.tsx",
+        "frontend/src/components/site/sections/FAQ.tsx",
+        "frontend/src/components/site/sections/HomeHero.tsx",
+        "frontend/src/components/site/sections/Instructors.tsx",
+        "frontend/src/components/site/sections/Pricing.tsx",
+        "frontend/src/components/site/sections/Programs.tsx",
+        "frontend/src/components/site/sections/Schedule.tsx",
+        "frontend/src/main.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-contact-form-that-allows-visitors-to-submit-inquiries-name-email-phone-optional-message-and-store-submissions-in-the-backend-canister-so-they-persist-across-reloads",
+      "featureTitle": "Implement a Contact form that allows visitors to submit inquiries (name, email, phone optional, message) and store submissions in the backend canister so they persist across reloads.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/components/site/sections/Contact.tsx",
+        "frontend/src/hooks/useSubmitContactForm.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-simple-admin-only-view-protected-by-internet-identity-login-that-lists-submitted-contact-inquiries-most-recent-first-for-academy-staff",
+      "featureTitle": "Add a simple admin-only view protected by Internet Identity login that lists submitted contact inquiries (most recent first) for academy staff.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/auth/LoginButton.tsx",
+        "frontend/src/components/auth/RequireAdmin.tsx",
+        "frontend/src/hooks/useAdminInquiries.ts",
+        "frontend/src/pages/AdminInquiries.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-establish-a-coherent-distinct-visual-theme-for-a-martial-arts-academy-brand-colors-typography-spacing-components-and-apply-it-consistently-across-the-site-do-not-use-a-blue-purple-theme",
+      "featureTitle": "Establish a coherent, distinct visual theme for a martial-arts academy brand (colors, typography, spacing, components) and apply it consistently across the site (do not use a blue/purple theme).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-static-images-to-the-project-and-use-them-in-the-ui-hero-and-branding-areas-from-frontend-public-assets-generated-do-not-serve-images-from-the-backend",
+      "featureTitle": "Add the required generated static images to the project and use them in the UI (hero and branding areas) from frontend/public/assets/generated (do not serve images from the backend).",
+      "files": [
+        "frontend/src/components/site/Footer.tsx",
+        "frontend/src/components/site/Header.tsx",
+        "frontend/src/components/site/sections/HomeHero.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Taekwondo Academy Marketing Website (Frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive public marketing site with clear navigation and sections for Home, About, Programs, Schedule, Instructors, Pricing, FAQ, and Contact.",
+      "acceptanceCriteria": [
+        "Site has a header navigation that links to each page/section (desktop and mobile).",
+        "All pages/sections render well on mobile, tablet, and desktop.",
+        "Each page/section contains sensible placeholder English copy that can be replaced later (no lorem ipsum)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the main marketing layout with a responsive header navigation and on-page sections (Home hero + highlights, About, Programs/Classes, Schedule, Instructors, Pricing/Memberships, FAQ, Contact)."
+        },
+        {
+          "path": "frontend/src/components/site/Header.tsx",
+          "operation": "create",
+          "description": "Add a responsive header with desktop links and a mobile menu that anchors to each required section."
+        },
+        {
+          "path": "frontend/src/components/site/Footer.tsx",
+          "operation": "create",
+          "description": "Add a footer with secondary navigation and academy contact/branding placeholders."
+        },
+        {
+          "path": "frontend/src/components/site/sections/HomeHero.tsx",
+          "operation": "create",
+          "description": "Implement the Home hero + highlights section with strong placeholder copy and CTAs that jump to Programs/Pricing/Contact."
+        },
+        {
+          "path": "frontend/src/components/site/sections/About.tsx",
+          "operation": "create",
+          "description": "Implement the About the Academy section with replaceable English copy (mission, values, training philosophy)."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Programs.tsx",
+          "operation": "create",
+          "description": "Implement Programs/Classes section (kids, teens, adults, family, competition team) using reusable section/card layouts."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Schedule.tsx",
+          "operation": "create",
+          "description": "Implement Schedule section with a responsive weekly grid/table and notes (trial class, arrivals, uniform)."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Instructors.tsx",
+          "operation": "create",
+          "description": "Implement Instructors section with instructor cards (name, rank, specialties, short bios) using placeholder copy."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Pricing.tsx",
+          "operation": "create",
+          "description": "Implement Pricing/Memberships section with tier cards and a clear disclaimer that pricing is placeholder and can be updated later."
+        },
+        {
+          "path": "frontend/src/components/site/sections/FAQ.tsx",
+          "operation": "create",
+          "description": "Implement FAQ section (uniforms, belts, trial, age minimums, cancellations) with accessible expandable items."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Contact.tsx",
+          "operation": "create",
+          "description": "Implement Contact section container that includes the contact form (wired in REQ-2) and static contact details placeholders."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the app renders the new App component and that global providers remain intact for responsive site behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement a Contact form that validates inputs and submits inquiries to the backend, showing loading/error/success states.",
+      "acceptanceCriteria": [
+        "Contact form validates required fields (name, email, message) and shows inline errors.",
+        "On successful submission, the user sees a confirmation state and the form resets.",
+        "Backend stores inquiries in stable storage and returns them via an API method.",
+        "Frontend submits inquiries to the backend and handles loading/error states."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create the contact form UI (name, email, phone optional, message) with inline validation, loading state, error state, and a success/confirmation state that resets the form after submission."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitContactForm.ts",
+          "operation": "create",
+          "description": "Add a hook that uses useActor to call the backend capability submitContactForm, exposing loading/error/success helpers for the ContactForm."
+        },
+        {
+          "path": "frontend/src/components/site/sections/Contact.tsx",
+          "operation": "modify",
+          "description": "Wire the ContactForm into the Contact section and ensure the section remains responsive on mobile/tablet/desktop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add an admin-only inquiries view protected by Internet Identity login and admin authorization checks.",
+      "acceptanceCriteria": [
+        "Admin view requires Internet Identity login; unauthenticated users cannot access the inquiry list.",
+        "Only the canister-defined admin principal(s) can view inquiries; non-admin authenticated users are denied.",
+        "Admin view displays inquiry fields and submission timestamp, and supports basic empty/loading/error states."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminInquiries.tsx",
+          "operation": "create",
+          "description": "Create an admin-only page that lists contact submissions (most recent first) and renders empty/loading/error states. Use the authorization component guidance for Internet Identity authentication + access control. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/RequireAdmin.tsx",
+          "operation": "create",
+          "description": "Add a guard component that (1) requires Internet Identity login before showing protected content and (2) checks admin status via backend capability isCallerAdmin, showing an access-denied UI when unauthorized. Use the authorization component to support this flow. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/LoginButton.tsx",
+          "operation": "create",
+          "description": "Add a login/logout button using Internet Identity from the existing authentication hook patterns. Use the authorization component guidance for login/logout and clearing cached data on logout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAdminInquiries.ts",
+          "operation": "create",
+          "description": "Create a hook that loads inquiries via backend capability getAllSubmissions and provides loading/error/empty handling for the admin UI."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the AdminInquiries view into the app navigation/routing (e.g., a dedicated route or hash path) and ensure it is wrapped in RequireAdmin so unauthenticated and non-admin users cannot access the list."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a consistent martial-arts academy visual theme using Tailwind (non-blue/purple primary palette) and existing UI components without modifying immutable sources.",
+      "acceptanceCriteria": [
+        "Theme is consistently applied to navigation, buttons, cards/sections, and typography.",
+        "Color palette avoids blue/purple as the primary theme colors.",
+        "UI uses Tailwind styling and existing UI components without modifying immutable component sources."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global Tailwind styles and CSS variables for a distinct martial-arts theme (e.g., black/near-black, warm neutral, red and/or gold accents) avoiding blue/purple as primary; include base typography and spacing defaults."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust theme extensions (if needed) to support the new brand palette, typography, and consistent section spacing tokens while keeping Tailwind conventions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply the theme consistently across layout, navigation, section headers, buttons, and cards by composing existing UI components (do not edit immutable UI component sources)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the required generated images as static assets and use them in the hero and branding areas (no backend image serving).",
+      "acceptanceCriteria": [
+        "Generated images are present under frontend/public/assets/generated with the specified filenames.",
+        "Home page uses the hero image in the top section.",
+        "Brand mark/logo image is used in the header and footer (or equivalent branding area)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/tkd-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated Taekwondo academy logo mark image at frontend/public/assets/generated/tkd-logo.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/tkd-hero-banner.dim_1920x800.png",
+          "operation": "create",
+          "description": "Add the generated wide hero banner image at frontend/public/assets/generated/tkd-hero-banner.dim_1920x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/tkd-pattern.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated subtle repeating background pattern at frontend/public/assets/generated/tkd-pattern.dim_1024x1024.png."
+        },
+        {
+          "path": "frontend/src/components/site/Header.tsx",
+          "operation": "modify",
+          "description": "Use the static logo image from frontend/public/assets/generated/tkd-logo.dim_512x512.png in the header branding area."
+        },
+        {
+          "path": "frontend/src/components/site/Footer.tsx",
+          "operation": "modify",
+          "description": "Use the static logo image from frontend/public/assets/generated/tkd-logo.dim_512x512.png in the footer branding area."
+        },
+        {
+          "path": "frontend/src/components/site/sections/HomeHero.tsx",
+          "operation": "modify",
+          "description": "Use the static hero image from frontend/public/assets/generated/tkd-hero-banner.dim_1920x800.png in the top hero section and apply the background pattern from frontend/public/assets/generated/tkd-pattern.dim_1024x1024.png in a subtle, readable way."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "frontend/src/index.css": "Global styles with martial arts theme using OKLCH colors (black, red, gold) for both light and dark modes, custom typography, and animation keyframes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with martial arts color palette, custom shadows, and animation utilities.",
+  "frontend/src/App.tsx": "Main application component with hash-based routing between home page and admin panel, rendering header, footer, and all marketing sections.",
+  "frontend/src/components/site/Header.tsx": "Responsive header with logo, desktop navigation menu, and mobile sheet menu that scrolls to page sections.",
+  "frontend/src/components/site/Footer.tsx": "Footer with branding, quick links, contact info, social media icons, and caffeine.ai attribution.",
+  "frontend/src/components/site/sections/HomeHero.tsx": "Hero section with background image, pattern overlay, headline, CTAs, and statistics highlights bar.",
+  "frontend/src/components/site/sections/About.tsx": "About section showcasing academy values (excellence, discipline, community, respect) and training philosophy.",
+  "frontend/src/components/site/sections/Programs.tsx": "Programs section displaying four age-specific training programs with features and descriptions.",
+  "frontend/src/components/site/sections/Schedule.tsx": "Weekly class schedule organized by day with time slots, program types, and important notes.",
+  "frontend/src/components/site/sections/Instructors.tsx": "Instructor profiles with ranks, specialties, and biographical information for four instructors.",
+  "frontend/src/components/site/sections/Pricing.tsx": "Membership pricing tiers (Basic, Unlimited, Family) with features and disclaimers.",
+  "frontend/src/components/site/sections/FAQ.tsx": "Accordion-based FAQ section answering common questions about uniforms, belts, trials, age, safety, attendance, cancellation, and tournaments.",
+  "frontend/src/components/site/sections/Contact.tsx": "Contact section with location/phone/email/hours information and embedded contact form.",
+  "frontend/src/components/contact/ContactForm.tsx": "Contact form with validation, loading states, error handling, and success confirmation that submits to backend.",
+  "frontend/src/hooks/useSubmitContactForm.ts": "React Query mutation hook for submitting contact form data to the backend.",
+  "frontend/src/hooks/useAdminInquiries.ts": "React Query hook for fetching all contact submissions sorted by timestamp (admin only).",
+  "frontend/src/components/auth/LoginButton.tsx": "Internet Identity login/logout button with loading states and query cache clearing on logout.",
+  "frontend/src/components/auth/RequireAdmin.tsx": "Guard component that requires Internet Identity authentication and admin authorization, showing appropriate loading/login/access-denied states.",
+  "frontend/src/pages/AdminInquiries.tsx": "Admin panel page displaying contact form submissions with filtering, sorting, and detailed inquiry cards (protected by RequireAdmin)."
+}

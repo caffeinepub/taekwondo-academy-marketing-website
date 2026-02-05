@@ -1,0 +1,75 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-05T17:53:11.125Z",
+  "summary": "Implements a multi-section marketing site with header navigation, martial-arts themed styling, a contact form wired to backend APIs, and an Internet Identity-based admin gate. However, backend persistence via stable storage is not evidenced, required generated image assets are not evidenced as added, and several unrequested backend/user-profile/access-control features appear introduced.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Backend stores inquiries in stable storage so they persist across reloads.",
+      "reason": "The backend stores submissions in an in-memory `let submissions = List.empty<ContactSubmission>()` with no `stable var` or `preupgrade/postupgrade` persistence logic shown, so persistence across canister upgrades/reloads is not evidenced.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Generated images are present under frontend/public/assets/generated with the specified filenames.",
+      "reason": "Code references the generated image paths, but the diff summary does not show the required files being added under `frontend/public/assets/generated` (no such paths are listed among added files; omitted files are unspecified).",
+      "evidence": [
+        "frontend/src/components/site/Header.tsx",
+        "frontend/src/components/site/Footer.tsx",
+        "frontend/src/components/site/sections/HomeHero.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile storage and APIs (get/save caller profile; admin can view others).",
+      "reason": "BuildRequest does not request any user profile feature or APIs; only contact inquiries and an admin inquiries list were required.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Custom access-control initialization via secret URL parameter `caffeineAdminToken` and backend mixin authorization framework.",
+      "reason": "BuildRequest only requires Internet Identity protection for an admin view; it does not request a secret-token initialization mechanism or a generalized permission system.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts",
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/auth/LoginButton.tsx",
+    "frontend/src/components/auth/RequireAdmin.tsx",
+    "frontend/src/components/contact/ContactForm.tsx",
+    "frontend/src/components/site/Footer.tsx",
+    "frontend/src/components/site/Header.tsx",
+    "frontend/src/components/site/sections/About.tsx",
+    "frontend/src/components/site/sections/Contact.tsx",
+    "frontend/src/components/site/sections/FAQ.tsx",
+    "frontend/src/components/site/sections/HomeHero.tsx",
+    "frontend/src/components/site/sections/Instructors.tsx",
+    "frontend/src/components/site/sections/Pricing.tsx",
+    "frontend/src/components/site/sections/Programs.tsx",
+    "frontend/src/components/site/sections/Schedule.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdminInquiries.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useSubmitContactForm.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AdminInquiries.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

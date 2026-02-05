@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a website for the user's taekwondo academy.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Taekwondo academy logo mark with a bold, modern martial-arts aesthetic (tkd-logo.dim_512x512.png)\n- Wide hero banner image showing a dynamic taekwondo training scene in a clean illustrated style (tkd-hero-banner.dim_1920x800.png)\n- Subtle repeating background pattern inspired by martial-arts motifs (tkd-pattern.dim_1024x1024.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-public-marketing-website-for-a-taekwondo-academy-with-a-responsive-layout-and-clear-navigation-including-pages-sections-for-home-hero-highlights-about-the-academy-programs-classes-schedule-instructors-pricing-memberships-faq-and-contact",
+      "title": "Create a public marketing website for a Taekwondo academy with a responsive layout and clear navigation, including pages/sections for: Home (hero + highlights), About the Academy, Programs/Classes, Schedule, Instructors, Pricing/Memberships, FAQ, and Contact.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-contact-form-that-allows-visitors-to-submit-inquiries-name-email-phone-optional-message-and-store-submissions-in-the-backend-canister-so-they-persist-across-reloads",
+      "title": "Implement a Contact form that allows visitors to submit inquiries (name, email, phone optional, message) and store submissions in the backend canister so they persist across reloads.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-admin-only-view-protected-by-internet-identity-login-that-lists-submitted-contact-inquiries-most-recent-first-for-academy-staff",
+      "title": "Add a simple admin-only view protected by Internet Identity login that lists submitted contact inquiries (most recent first) for academy staff.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-coherent-distinct-visual-theme-for-a-martial-arts-academy-brand-colors-typography-spacing-components-and-apply-it-consistently-across-the-site-do-not-use-a-blue-purple-theme",
+      "title": "Establish a coherent, distinct visual theme for a martial-arts academy brand (colors, typography, spacing, components) and apply it consistently across the site (do not use a blue/purple theme).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-static-images-to-the-project-and-use-them-in-the-ui-hero-and-branding-areas-from-frontend-public-assets-generated-do-not-serve-images-from-the-backend",
+      "title": "Add the required generated static images to the project and use them in the UI (hero and branding areas) from frontend/public/assets/generated (do not serve images from the backend).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website for the taekwondo academy",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Taekwondo Academy Marketing Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
